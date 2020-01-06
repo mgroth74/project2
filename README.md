@@ -7,7 +7,7 @@ In this project I will be creating a weather app that will show the site visitor
 
 ## Project Links
 
-- [https://git.generalassemb.ly/mgroth/project-2]()
+- [https://github.com/mgroth74/project2]()
 - [deployment]()
 
 ## Wireframes
