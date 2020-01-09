@@ -1,27 +1,54 @@
-
+ 
 .App {
+  margin: auto;
+  width:80%;
+  height: 1080px;
   background-image: url("https://s7d2.scene7.com/is/image/TWCNews/1031_nc_sunny_weather_2-1?wid=1250&hei=703&$wide-bg$");
-  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
+/*
   text-align: center;
   width: auto;
-  /* border: 2px solid green; */
+  border: 2px solid green;
   margin: auto;
   color: whitesmoke;
+*/
+  } 
 
+  .header{
+    height: 100px;
+    width: 100%;
+    font-size: 34px;
+    background-color: whitesmoke;
+    color: rgb(53, 50, 50);
+    display: flex;
+    line-height: 100px;
+    }
+
+  .title{
+    flex: 1;
+    
   }
 
-.currdetail{
-  /* padding: 2%; */
+  .zip{
+    flex: 1;
+    text-align: right;
+  }
+
+
+
+.hourlyforecast{
+  padding: 10% 0;
+  border:2px solid white;
+  border-radius: 5%;
+  
 }
 
 
 .forecast{
   margin: 5%;
-  border: 2px solid black;
+  /* border: 2px solid black; */ 
   display:grid;
   grid-template-columns: repeat(5, 1fr);
 

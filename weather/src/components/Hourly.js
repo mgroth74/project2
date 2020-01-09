@@ -1,5 +1,5 @@
 import React from "react";
-
+import moment from 'moment';
 
 function Hourly(props){ 
   console.log('daily',props.date)
@@ -13,7 +13,7 @@ function Hourly(props){
   let day = days[realDate]
 
   let dateArr = props.date.split(" ");
-  let time = moment("8:32 AM", 'h:mm A').subtract('hours', 2).format('h:mm A')
+  let time = moment(dateArr[1], 'h:mm A').subtract('hours', 6).format('h:mm A')
   console.log(time)
 
   let forTemp = Math.round(props.temp)
@@ -22,10 +22,10 @@ function Hourly(props){
   let iconUrl = (`http://openweathermap.org/img/wn/${props.icon}@2x.png`)
 
 return(
-  <div className="dayforecast">
+  <div className="hourlyforecast">
     
       <div>{day}</div>
-      <div>{props.date}</div>
+      <div>{time}</div>
       <div>Temp: {forTemp}</div>
       <div>Real Feel: {forRealTemp}</div>
       <img src={iconUrl}></img>

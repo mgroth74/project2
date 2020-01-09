@@ -4,7 +4,7 @@ import Current from "./Current";
 import Forecast from "./Forecast";
 import HourForecast from "./HourForecast"
 
-function Zipcode() {
+function ZipCode() {
   let [zipCode, setZipCode] = useState();
   let [city, setCity] = useState();
   let [current, setCurrent] = useState();
@@ -90,4 +90,4 @@ function Zipcode() {
   );
 }
 
-export default Zipcode;
+export default ZipCode;
