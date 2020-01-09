@@ -1,14 +1,23 @@
-body{
- width: 100%;
- margin: auto;
-}
+
 .App {
-    text-align: center;
-    width: auto;
-    border: 2px solid green;
-    margin: auto;
+  background-image: url("https://s7d2.scene7.com/is/image/TWCNews/1031_nc_sunny_weather_2-1?wid=1250&hei=703&$wide-bg$");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  text-align: center;
+  width: auto;
+  /* border: 2px solid green; */
+  margin: auto;
+  color: whitesmoke;
 
   }
+
+.currdetail{
+  /* padding: 2%; */
+}
+
 
 .forecast{
   margin: 5%;
@@ -19,5 +28,5 @@ body{
 }
 .dayforecast{
   width: 200px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
