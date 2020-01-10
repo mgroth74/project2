@@ -8,7 +8,7 @@ In this project I will be creating a weather app that will show the site visitor
 ## Project Links
 
 - [https://github.com/mgroth74/project2]()
-- [deployment]()
+- [https://objective-jackson-05a262.netlify.com/?_sm_au_=iVVSkDPJLQqNtr7NL321jK0f1JH33]()
 
 ## Wireframes
 
@@ -33,7 +33,7 @@ There will be additional information based on the zipcode as well as some additi
 #### MVP EXAMPLE
 -	Present the user with an input box to enter a zipcode
 - Transform the zipcode into a lat and long
-- Utilize the lat and long to pull temperature data from the Dark Sky API 
+- Utilize the lat and long to pull temperature data from the openweathermap API 
 - Render the temperature specific to the zipcode
 - Provide two additonal links for the hourly temperature and a five day temperature
 
@@ -59,24 +59,22 @@ There will be additional information based on the zipcode as well as some additi
 ##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
 
 Componenets
-	- Header 
-	-	Home page with zipcode box
-	-	Current forecast
-	- Hourly forecast
-	- Five day forecast
-		-- additional detail for each day of the five day orecast
-	- Footer	
+	- Zipcode - input field and calls api's to get lat/long, current and future forecasts
+	-	Current - renders the current forecast
+	-	Forecast - renders the the 5 day forecast 
+	- DayForecast - create the card to display each day of the 5 day forecast
+	- HourForecast - renders the hourly forecast
+	- Hourly - creates each card to display each indivual hour forecast	
 
 | Component | Description | 
 | --- | :---: |  
 | App | Will render the various componets to provide a weather forecast to the user.
-| Header | Will include a home link, image and app name |
-| Home | Present the user with an input box for a zipcode and convert it to lat & long |
-| Current Forecast | display the current temperature |
-| Hourly forecast | display the hourly temperature for the 12 - 24 hours|
-| Five Day forecast | display the temperature for the next five days |
-| Five day detail | display additona detail for each of the five days with the day is clicked |
-| Footer | render addiiontal to other weather infor | 
+| Zipcode | Input field and calls api's to get lat/long, current and future forecasts |
+| Current | Renders the current forecast |
+| Forecast | Renders the the 5 day forecast  |
+| DayForecast | Create the card to display each day of the 5 day forecast|
+| HourForecast | Renders the hourly forecast |
+| Hourly | Creates each card to display each indivual hour forecast	 |
 
 ## Time Frames
 
@@ -84,32 +82,67 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| App | H | 3hrs|  |  |
-| Header | H | 3hrs|  |  |
-| Home 	| H | 6hrs |  |
-| Current 	| H | 2hrs |  |
-| Hourly 	| H | 6hrs |  |
-| 5 day 	| H | 6hrs |  |
-| 5 day detail 	| H | 10hrs |  |
-| Footer 	| L | 1 |  |
-| Total | H | 37hrs|  |  |
+| App | H | 3hrs| 2hrs | 2hrs |
+| Zipcode | H | 3hrs| 8rs | 8hrs |
+| Current 	| H | 6hrs | 5hrs | 5hrs |
+| Forecast 	| H | 2hrs | 4hrs | 4hrs |
+| DayForecast 	| H | 6hrs | 4hrs | 4hrs |
+| HourForecast 	| H | 6hrs | 3hrs | 3hrs |
+| Hourly 	| H | 10hrs | 3hrs | 3hrs |
+| Verify and Debug 	| H | 4hrs | 6hrs | 6hrs |
+| CSS | M | 0 | 8 | 8 |
+| Total | H | 36hrs| 43 | 43 |
 
 ## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 
+Only additional library is used was moment to work with the date and time.
 
 ## Code Snippet
-
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  Code snippet should not be greater than 10 lines of code. 
-
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
+I was happy to get flexbox to work.
+.hour{
+  margin: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  
 }
-```
+
+.hourforecast{
+  padding: 20px;
+  flex-basis:20%;
+  box-sizing: border-box;
+  text-align: center;
+  border:2px solid white;
+  border-radius: 5%;
+}
+
+The API did return specific daily forecast so I had to create my own.  To do this I mapped through the api data and then only diplayed the ones that had "18:00:00" as part of the date and time data point.
+
+ if (props.forecast) {
+    let foreData = props.forecast.list;
+    let dailyData = foreData.map((day, dt) => {
+      if (day.dt_txt.includes("18:00:00")) {
+
+        
+        return (
+          <div className="dayforecast" key={day.dt_txt}>
+          <DayForecast 
+
 
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
 
-#### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+### Error ###
+CORS error when attempting to retreive the lat and long from my zip code API.
+
+### Resolution ###
+Ended up missing a step registering the application to generate a js key.
+
+### Error ###
+Error 400 on API calls Once I got the zip code api working I was trying to pass the lat and long retrieved from the api to the weather api.  Initally I was not able to get the variables to pass from one fetch to the next fetch command.  
+
+### Resolution ###
+In order to resolve this I had to put multiple fetchs nested within each other.
+
+### CSS Issues ###
+Once everthing was working form a data perspective I had a difficult time getting the daily / hourly forecasts to appear correctly.  I eventually got flexbox working and the results tur out pretty good.
+
+
+ 
