@@ -8,7 +8,8 @@ function Current(props) {
     let lowTemp = Math.round(props.current.main.temp_min);
     let hiTemp = Math.round(props.current.main.temp_max);
     let humidity = Math.round(props.current.main.humidity);
-    let iconUrl = `http://openweathermap.org/img/wn/${props.current.weather[0].icon}@2x.png`;
+    let iconUrl = `https://openweathermap.org/img/wn/${props.current.weather[0].icon}@2x.png`;
+    
 
     return (
       <div className="currdetail">
