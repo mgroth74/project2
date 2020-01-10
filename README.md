@@ -58,14 +58,6 @@ There will be additional information based on the zipcode as well as some additi
 ## Components
 ##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
 
-Componenets
-	- Zipcode - input field and calls api's to get lat/long, current and future forecasts
-	-	Current - renders the current forecast
-	-	Forecast - renders the the 5 day forecast 
-	- DayForecast - create the card to display each day of the 5 day forecast
-	- HourForecast - renders the hourly forecast
-	- Hourly - creates each card to display each indivual hour forecast	
-
 | Component | Description | 
 | --- | :---: |  
 | App | Will render the various componets to provide a weather forecast to the user.
