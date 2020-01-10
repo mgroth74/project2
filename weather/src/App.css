@@ -46,6 +46,11 @@
   font-size: larger;
 }
 
+.fa .fa-search{
+  background-color: whitesmoke;
+  color: black;
+}
+
 .currdetail{
   text-align: center;
   color: whitesmoke;
