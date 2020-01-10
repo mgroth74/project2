@@ -36,14 +36,19 @@
   color:whitesmoke;
   }
 
-.ZipCode{
+.zipcode{
   color: whitesmoke;
+  
+}
+
+.zipform{
+  height: 30px;
+  font-size: larger;
 }
 
 .currdetail{
   text-align: center;
   color: whitesmoke;
-
 
 }
   

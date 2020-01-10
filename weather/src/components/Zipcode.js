@@ -57,17 +57,18 @@ function ZipCode(props) {
   };
 
   return (
-    <div className="ZipCode">
-      <form onSubmit={e => handleSubmit(e)}>
-        ZipCode:
-        <input
+    <div className="zipcode">
+      <form className="zipform" onSubmit={e => handleSubmit(e)}>
+      
+        <input className="zipform"
+          size="80"
           id="zipInput"
           type="text"
-          placeholder=" "
+          placeholder="Search location by Zip"
           value={zipCode}
           onChange={e => handleChange(e)}
         />
-        <button>Submit</button>
+        <button className="zipform"><i class="fa fa-search"></i></button>
       </form>
 
       <Current current={current} city={city} />
