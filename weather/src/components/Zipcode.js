@@ -18,7 +18,7 @@ function ZipCode(props) {
     e.preventDefault();
     setZipCode(e.target.value);
 
-    let zipUrl = `http://www.zipcodeapi.com/rest/js-d6H98R7dZhT6ETYdgmtEQHgXaqk0TL1YhNxFSFvKxjpq6gr6vfGmJG7JaPQZvZbe/info.json/${zipCode}/degrees`;
+    let zipUrl = `https://www.zipcodeapi.com/rest/js-d6H98R7dZhT6ETYdgmtEQHgXaqk0TL1YhNxFSFvKxjpq6gr6vfGmJG7JaPQZvZbe/info.json/${zipCode}/degrees`;
 
     fetch(zipUrl)
       .then(res => res.json())
