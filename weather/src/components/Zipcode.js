@@ -25,6 +25,8 @@ function ZipCode(props) {
       .then(res => res.json())
       .then(zipData => {
         setCity(zipData);
+        console.log('lat',zipData)
+
         let curUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${zipData.lat}&lon=${zipData.lng}&units=imperial&APPID=e95bfbd83c1ae67e534b8f31127d5c83`;
 
         fetch(curUrl)
