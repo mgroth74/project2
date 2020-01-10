@@ -17,9 +17,10 @@ function ZipCode(props) {
   const handleSubmit = e => {
     e.preventDefault();
     setZipCode(e.target.value);
+    console.log('submit',zipCode)
 
     let zipUrl = `https://www.zipcodeapi.com/rest/js-d6H98R7dZhT6ETYdgmtEQHgXaqk0TL1YhNxFSFvKxjpq6gr6vfGmJG7JaPQZvZbe/info.json/${zipCode}/degrees`;
-
+    console.log('url',zipUrl)
     fetch(zipUrl)
       .then(res => res.json())
       .then(zipData => {
@@ -54,6 +55,7 @@ function ZipCode(props) {
   const handleChange = e => {
     e.preventDefault();
     setZipCode(e.target.value);
+    console.log('click',zipCode)
   };
 
   return (
@@ -68,7 +70,7 @@ function ZipCode(props) {
           value={zipCode}
           onChange={e => handleChange(e)}
         />
-        <button className="zipform"><i class="fa fa-search"></i></button>
+        <button className="zipform"><i className="fa fa-search"></i></button>
       </form>
 
       <Current current={current} city={city} />
