@@ -6,6 +6,7 @@ function Hourly(props) {
   let newDate = new Date(props.date);
 
   let realDate = newDate.getDay();
+  console.log(realDate)
 
   const days = [
     "Sunday",

@@ -90,33 +90,34 @@ Only additional library is used was moment to work with the date and time.
 
 ## Code Snippet
 I was happy to get flexbox to work.
-.hour{
-  margin: 2%;
-  display: flex;
-  flex-wrap: wrap;
-  
-}
 
-.hourforecast{
-  padding: 20px;
-  flex-basis:20%;
-  box-sizing: border-box;
-  text-align: center;
-  border:2px solid white;
-  border-radius: 5%;
-}
+	.hour{
+		margin: 2%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+
+	.hourforecast{ 
+		padding: 20px;
+		flex-basis:20%;
+		box-sizing: border-box;
+		text-align: center;
+		border:2px solid white;
+		border-radius: 5%;
+		}
 
 The API did return specific daily forecast so I had to create my own.  To do this I mapped through the api data and then only diplayed the ones that had "18:00:00" as part of the date and time data point.
 
- if (props.forecast) {
-    let foreData = props.forecast.list;
-    let dailyData = foreData.map((day, dt) => {
-      if (day.dt_txt.includes("18:00:00")) {
+	if (props.forecast) {
+			let foreData = props.forecast.list;
+			let dailyData = foreData.map((day, dt) => {
+				if (day.dt_txt.includes("18:00:00")) {
 
         
-        return (
-          <div className="dayforecast" key={day.dt_txt}>
-          <DayForecast 
+				return (
+				<div className="dayforecast" key=day.dt_txt}>
+					<DayForecast 
 
 
 ## Issues and Resolutions
