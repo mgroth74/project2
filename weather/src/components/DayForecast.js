@@ -1,36 +1,35 @@
-import React from 'react';
+import React from "react";
 
-function DayForecast(props){
-  console.log('daily',props.date)
-  // if(props.date.includes("12:00:00")){
-
+function DayForecast(props) {
   let newDate = new Date(props.date);
-  console.log('newdate',newDate)
+
   let realDate = newDate.getDay();
-  console.log('realDate',realDate)
-  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-  let day = days[realDate]
 
-  let forTemp = Math.round(props.temp)
-  let forRealTemp = Math.round(props.RealFeal)
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  let day = days[realDate];
 
-  let iconUrl = (`http://openweathermap.org/img/wn/${props.icon}@2x.png`)
+  let forTemp = Math.round(props.temp);
+  let forRealTemp = Math.round(props.RealFeal);
 
-return(
-  <div className="dayforecast">
-    
+  let iconUrl = `http://openweathermap.org/img/wn/${props.icon}@2x.png`;
+
+  return (
+    <>
       <div>{day}</div>
       <div>Temp: {forTemp}</div>
       <div>Real Feel: {forRealTemp}</div>
-      <img src={iconUrl}></img>
+      <img src={iconUrl} alt=""></img>
       <div>{props.desc}</div>
-
-     
-
-  </div>
-);
-
-
+    </>
+  );
 }
 
-export default DayForecast
+export default DayForecast;

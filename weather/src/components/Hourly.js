@@ -1,41 +1,43 @@
 import React from "react";
-import moment from 'moment';
+import moment from "moment";
 
-function Hourly(props){ 
-  console.log('daily',props.date)
-  // if(props.date.includes("12:00:00")){
+function Hourly(props) {
+  console.log("daily", props.date);
 
   let newDate = new Date(props.date);
-  console.log('hournewdate',newDate)
+
   let realDate = newDate.getDay();
-  console.log('realDate',realDate)
-  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-  let day = days[realDate]
+
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  let day = days[realDate];
 
   let dateArr = props.date.split(" ");
-  let time = moment(dateArr[1], 'h:mm A').subtract('hours', 6).format('h:mm A')
-  console.log(time)
+  let time = moment(dateArr[1], "h:mm A")
+    .subtract("hours", 6)
+    .format("h:mm A");
 
-  let forTemp = Math.round(props.temp)
-  let forRealTemp = Math.round(props.RealFeal)
+  let forTemp = Math.round(props.temp);
+  let forRealTemp = Math.round(props.RealFeal);
 
-  let iconUrl = (`http://openweathermap.org/img/wn/${props.icon}@2x.png`)
+  let iconUrl = `http://openweathermap.org/img/wn/${props.icon}@2x.png`;
 
-return(
-  <div className="hourlyforecast">
-    
+  return (
+    <>
       <div>{day}</div>
       <div>{time}</div>
       <div>Temp: {forTemp}</div>
       <div>Real Feel: {forRealTemp}</div>
-      <img src={iconUrl}></img>
+      <img src={iconUrl} alt=""></img>
       <div>{props.desc}</div>
-
-     
-
-  </div>
-);
-
-
+    </>
+  );
 }
-export default Hourly
+export default Hourly;

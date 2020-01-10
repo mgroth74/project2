@@ -1,11 +1,11 @@
-/* html{
-  background-image: url("https://s7d2.scene7.com/is/image/TWCNews/1031_nc_sunny_weather_2-1?wid=1250&hei=703&$wide-bg$");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+html{
+  max-width: 100%;
+  background-image: url("https://images.pexels.com/photos/912110/pexels-photo-912110.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  /* background-image: url("https://ak4.picdn.net/shutterstock/videos/3183814/preview/stock-footage-loop-timelapse-of-clouds-at-night-with-moon-rays-p.webm"); */
+  background-repeat: np-repeat;
+  /* background-size: 100% 100%; */
 
-} */
+}
 
 body {
   margin: 0;

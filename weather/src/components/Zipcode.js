@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import Current from "./Current";
 import Forecast from "./Forecast";
-import HourForecast from "./HourForecast"
+import HourForecast from "./HourForecast";
 
-function ZipCode() {
+function ZipCode(props) {
   let [zipCode, setZipCode] = useState();
   let [city, setCity] = useState();
   let [current, setCurrent] = useState();
   let [forecast, setForecast] = useState();
-  let [lat, setLat] = useState();
-  let [long, setLong] = useState();
 
-  
+  if (props === null) {
+    setZipCode(null);
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
     setZipCode(e.target.value);
@@ -22,11 +23,9 @@ function ZipCode() {
     fetch(zipUrl)
       .then(res => res.json())
       .then(zipData => {
-        setLat(zipData.lat);
-        setLong(zipData.lng);
-        setCity(zipData)
+        setCity(zipData);
         let curUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${zipData.lat}&lon=${zipData.lng}&units=imperial&APPID=e95bfbd83c1ae67e534b8f31127d5c83`;
-        console.log(curUrl);
+
         fetch(curUrl)
           .then(res => res.json())
           .then(curData => {
@@ -37,7 +36,7 @@ function ZipCode() {
           });
 
         let forUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${zipData.lat}&lon=${zipData.lng}&units=imperial&APPID=e95bfbd83c1ae67e534b8f31127d5c83`;
-        console.log(forUrl);
+
         fetch(forUrl)
           .then(res => res.json())
           .then(forData => {
@@ -50,18 +49,15 @@ function ZipCode() {
       .catch(err => {
         console.log(err);
       });
-      // zipInput.value = "";
   };
 
   const handleChange = e => {
     e.preventDefault();
     setZipCode(e.target.value);
-    console.log("handle change", e.target.value);
   };
 
   return (
     <div className="ZipCode">
-      
       <form onSubmit={e => handleSubmit(e)}>
         ZipCode:
         <input
@@ -74,14 +70,13 @@ function ZipCode() {
         <button>Submit</button>
       </form>
 
-      <Current current={current} 
-                city={city}/>
+      <Current current={current} city={city} />
       <main>
         <Route
           path="/forecast/:daily"
           render={() => <Forecast forecast={forecast} />}
         />
-         <Route
+        <Route
           path="/hourly/:hourly"
           render={() => <HourForecast forecast={forecast} />}
         />

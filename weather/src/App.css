@@ -2,11 +2,12 @@
 .App {
   margin: auto;
   width:80%;
-  height: 1080px;
-  background-image: url("https://s7d2.scene7.com/is/image/TWCNews/1031_nc_sunny_weather_2-1?wid=1250&hei=703&$wide-bg$");
+  height: 2300px;
+  border:2px;
+  /* background-image: url("https://s7d2.scene7.com/is/image/TWCNews/1031_nc_sunny_weather_2-1?wid=1250&hei=703&$wide-bg$");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;  */
 /*
   text-align: center;
   width: auto;
@@ -20,40 +21,69 @@
     height: 100px;
     width: 100%;
     font-size: 34px;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     color: rgb(53, 50, 50);
-    display: flex;
+  
     line-height: 100px;
     }
 
-  .title{
-    flex: 1;
+  .mainurl{
+    text-decoration: none;
+    color: black;
+  }
     
+.title Link{
+  color:whitesmoke;
   }
 
-  .zip{
-    flex: 1;
-    text-align: right;
-  }
+.ZipCode{
+  color: whitesmoke;
+}
+
+.currdetail{
+  text-align: center;
+  color: whitesmoke;
 
 
+}
+  
+.fiveday{
+  margin: 2%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.dayforecast{
+  padding: 20px;
+  flex-basis:20%;
+  box-sizing: border-box;
+  text-align: center;
 
-.hourlyforecast{
-  padding: 10% 0;
-  border:2px solid white;
-  border-radius: 5%;
+ 
+}
+
+.hour{
+  margin: 2%;
+  display: flex;
+  flex-wrap: wrap;
   
 }
 
-
-.forecast{
-  margin: 5%;
-  /* border: 2px solid black; */ 
-  display:grid;
-  grid-template-columns: repeat(5, 1fr);
-
+.hourforecast{
+  padding: 20px;
+  flex-basis:20%;
+  box-sizing: border-box;
+  text-align: center;
+  border:2px solid white;
+  border-radius: 5%;
 }
-.dayforecast{
-  width: 200px;
-  /* border: 2px solid red; */
+
+
+@media (min-width: 900px){
+  .hour{
+      flex-basis:20%;
+  }
+  .fiveday{
+    flex-basis:20%;
+  }
+  
 }

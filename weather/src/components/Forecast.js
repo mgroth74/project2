@@ -1,48 +1,32 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import DayForecast from './DayForecast';
-// import DayDetail from './DayDetail';
+import React from "react";
+import DayForecast from "./DayForecast";
 
-function Forecast(props){
-  if(props.forecast){
-    console.log('forecast props',props)
-    console.log('forecast props',props.forecast.list[0].weather[0].description)
-    
-    let foreData = props.forecast.list
-    let dailyData = foreData.map((day,dt) => {
-      if(day.dt_txt.includes("18:00:00")){
-      return(
-        <Container>
-          <Row>
-            <Col xs={5} className="mb-5" key={`{day.id}`}>
-              <DayForecast date = {day.dt_txt}
-                          temp = {day.main.temp}
-                          RealFeal = {day.main.feels_like}
-                          desc = {day.weather[0].description}
-                          icon = {day.weather[0].icon}
-                          id= {day.weather[0].id}/>
-               </Col>
-          </Row>
-        </Container>
+function Forecast(props) {
+  if (props.forecast) {
+    let foreData = props.forecast.list;
+    let dailyData = foreData.map((day, dt) => {
+      if (day.dt_txt.includes("18:00:00")) {
 
-      )
+        
+        return (
+          <div className="dayforecast" key={day.dt_txt}>
+          <DayForecast 
+            date={day.dt_txt}
+            temp={day.main.temp}
+            RealFeal={day.main.feels_like}
+            desc={day.weather[0].description}
+            icon={day.weather[0].icon}
+            id={day.weather[0].id}
+          />
+          </div>
+        );
       }
-    })
-    
+    });
 
-return(
-  <div className="forecast">
-
-      {dailyData}
-
-  </div>
-);
-  }
-  else{
-    return(
-    <></>
-    )
+    return <div className="fiveday">{dailyData}</div>;
+  } else {
+    return <></>;
   }
 }
 
-export default Forecast
+export default Forecast;
