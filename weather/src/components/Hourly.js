@@ -2,7 +2,6 @@ import React from "react";
 import moment from "moment";
 
 function Hourly(props) {
-  console.log("daily", props.date);
 
   let newDate = new Date(props.date);
 

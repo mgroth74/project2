@@ -10,22 +10,17 @@ function ZipCode(props) {
   let [current, setCurrent] = useState();
   let [forecast, setForecast] = useState();
 
-  if (props === null) {
-    setZipCode(null);
-  }
-
   const handleSubmit = e => {
     e.preventDefault();
     setZipCode(e.target.value);
     
     let zipUrl = `https://www.zipcodeapi.com/rest/js-d6H98R7dZhT6ETYdgmtEQHgXaqk0TL1YhNxFSFvKxjpq6gr6vfGmJG7JaPQZvZbe/info.json/${zipCode}/degrees`;
-    console.log('url',zipUrl)
+  
     fetch(zipUrl)
       .then(res => res.json())
       .then(zipData => {
         setCity(zipData);
-        console.log('lat',zipData)
-
+       
         let curUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${zipData.lat}&lon=${zipData.lng}&units=imperial&APPID=e95bfbd83c1ae67e534b8f31127d5c83`;
 
         fetch(curUrl)
